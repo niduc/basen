@@ -1,6 +1,6 @@
 CC=clang++
 LD=clang++
-CFLAGS=-c -std=c++1y -Wall -Wextra -pedantic -Werror -stdlib=libc++ -Weffc++ -Os -MD
+CFLAGS=-c -std=c++1y -Wall -Wextra -pedantic -Werror -stdlib=libc++ -Weffc++ -Os -MD -Wno-unused-private-field
 LDFLAGS=-stdlib=libc++ -lc++abi
 SOURCES=$(shell find -name "*.cpp")
 OBJECTS=$(SOURCES:.cpp=.o)
