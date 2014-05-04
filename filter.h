@@ -21,7 +21,7 @@ class filter
 {
 public:
     filter(const std::uintmax_t & timestamp, std::uintmax_t & dirt, std::priority_queue<event> & events) : _timestamp{ timestamp }, 
-        _dirt{ dirt }, _events{ events }
+        _dirt{ dirt }, _events(events)
     {
     }
     
