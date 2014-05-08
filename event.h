@@ -6,13 +6,14 @@
 class event
 {
 public:
-    event(std::uintmax_t timestamp) : _timestamp{ timestamp }
+    template<typename F>
+    event(std::uintmax_t timestamp, F && f) : _timestamp{ timestamp }, _callback{ std::forward<F>(f) }
     {
     }
     
     void handle(std::uintmax_t current) const
     {
-        std::cout << "event to be handled at " << _timestamp << " handled at " << current << '\n';
+        _callback(current);
     }
     
     std::uintmax_t timestamp() const
@@ -20,11 +21,12 @@ public:
         return _timestamp;
     }
     
-    bool operator<(const event & other) const
+    bool operator>(const event & other) const
     {
-        return _timestamp < other._timestamp;
+        return _timestamp > other._timestamp;
     }
     
 private:
     std::uintmax_t _timestamp;
+    std::function<void (std::uintmax_t)> _callback;
 };
