@@ -20,11 +20,14 @@ Gestość symulacji: do ustalenia
 
 
 
+
+
 Cele:
 
 - ustalenie optymalnej ilosci filtrów dla zadanego zbiornika.
 - ustalenie optymalnej ilosci konserwatorów dla danej ilosci filtrów.
 - minimalizacja kosztów utrzymania, ustalanie stosunku konserwatorów do filtrów aby utrzymywanie wody zdatnej do użycia nie generowało nadmiernych kosztów.
 - okrselenie momentu załamania systemu.
+
 
 
