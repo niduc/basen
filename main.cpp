@@ -8,7 +8,7 @@
 
 constexpr std::uintmax_t timestep = 1;            // half an hour
 std::uintmax_t max_timestamp = 2 * 24 * 365;      // a year
-std::uintmax_t num_filters = 4;                   // five filters
+std::uintmax_t num_filters = 6;                   // some filters
 
 std::random_device rd;
 std::mt19937 engine{ rd() };
@@ -34,7 +34,7 @@ std::intmax_t normal_people_distribution(std::uintmax_t timestamp, std::uintmax_
         return -amount_of_people;
     }
     
-    static std::normal_distribution<> dist(0, 20);
+    static std::normal_distribution<> dist(0, 25);
     
     auto change = std::round(dist(engine));
     if (amount_of_people >= people_limit && change > 0)
