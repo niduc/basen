@@ -8,14 +8,14 @@
 
 constexpr std::uintmax_t timestep = 1;            // half an hour
 std::uintmax_t max_timestamp = 2 * 24 * 365;      // a year
-std::uintmax_t num_filters = 6;                   // some filters
+std::uintmax_t num_filters = 3;                   // some filters
 
 std::random_device rd;
 std::mt19937 engine{ rd() };
 
 std::uintmax_t linear_of_people(std::uintmax_t num_people)
 {
-    return num_people * 5;
+    return num_people * 3;
 }
 
 std::uintmax_t pool_volume = 25 * 50 * 2;
@@ -34,7 +34,7 @@ std::intmax_t normal_people_distribution(std::uintmax_t timestamp, std::uintmax_
         return -amount_of_people;
     }
     
-    static std::normal_distribution<> dist(0, 25);
+    static std::normal_distribution<> dist(0, people_limit / 10);
     
     auto change = std::round(dist(engine));
     if (amount_of_people >= people_limit && change > 0)
@@ -110,7 +110,7 @@ int main(int argc, char ** argv)
         timestamp += timestep;
         money += amount_of_people;
         
-        if (water_dirt_level / pool_volume >= 5)
+        if (water_dirt_level / pool_volume >= 50)
         {
             ++alarming_level_timestamps;
         }
